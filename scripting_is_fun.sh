@@ -73,7 +73,7 @@ fi
 echo "this script  will exit with a  0 exit status"
 #exit 0
 
-read -p " please enter the file you want me to test " FILE
+read -p " please enter the file you want me to test for validity " FILE
 
 if [ -f ${FILE} ] ; then echo "exit 0"
 #exit 0
@@ -97,10 +97,26 @@ cat /etc/shadow
 
 if [ $? -eq 0 ]; then
 echo "exit status is 0 hurray"
-exit 0
+#exit 0
 else
-echo "command failed"
-exit 1
+echo "exit status is not 0 something went wrong"
+#exit 1
 fi
 
 
+########################################################################################
+################################FUNCTIONS###############################################
+
+# to count files in a directory save files to a variable
+# then subset that variable? 
+function file_count()
+{
+#shopt -s nullglob
+numfiles=$(ls *.*)
+local dir="$1"        #this allows a directory to be entered
+echo "counting files in the directory $dir"
+local count=$(ls -1 $dir | wc -l)   # | is  is a pipe similar to %> in R  
+echo "the number of files in $dir is  $count"
+}
+
+file_count /Users/jabba/Desktop/Bioinformatic
