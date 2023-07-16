@@ -1,15 +1,21 @@
 #!/bin/sh
 
 
-Folder=$1
+Current=$(pwd)
+
+Directory=$1
+
 #Folder2=${/c/Users/jabba/Downloads}
 
 
-if  [ -f $1 ]
+
+#if its a directory that exist switch to it
+if  [ -d $1 ]
 then
-echo "$1 folder checks out"
+echo "$1 Directory checks out"
+cd $1 
 else
-echo "$1 isn't a real folder"
+echo "$1 isn't a real Directory"
 fi
 
 
@@ -25,5 +31,10 @@ mv -i -v "$FILE" "${date}$FILE"
 done
 
 
+
+
+
+#switch  back to current directory
+cd ${Current}
 
 #rename * ${date}*.pdf *.pdf
