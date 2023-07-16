@@ -93,7 +93,7 @@ fi
 # execute the cat command on the  following file if 
 # the exit status is 0 indicating success then print  hurray
 # otherwise print failure and set exit status to 1
-cat /etc/shadow
+cat /c/etc/shadow
 
 if [ $? -eq 0 ]; then
 echo "exit status is 0 hurray"
@@ -119,4 +119,9 @@ local count=$(ls -1 $dir | wc -l)   # | is  is a pipe similar to %> in R
 echo "the number of files in $dir is  $count"
 }
 
-file_count /Users/jabba/Desktop/Bioinformatic
+
+#I want to be able to supply a parameter which the function
+#filecount then uses to count files
+file_count $dir
+
+

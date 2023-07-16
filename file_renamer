@@ -1,0 +1,29 @@
+#!/bin/sh
+
+
+Folder=$1
+#Folder2=${/c/Users/jabba/Downloads}
+
+
+if  [ -f $1 ]
+then
+echo "$1 folder checks out"
+else
+echo "$1 isn't a real folder"
+fi
+
+
+
+date=$(date '+%Y-%m-%d') 
+
+
+
+for FILE in ls *.pdf $1
+do 
+echo "adding ${date} to ${FILE}"
+mv -i -v "$FILE" "${date}$FILE"
+done
+
+
+
+#rename * ${date}*.pdf *.pdf
