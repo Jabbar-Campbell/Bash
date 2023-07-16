@@ -27,7 +27,7 @@ date=$(date '+%Y-%m-%d')
 for FILE in ls *.pdf $1
 do 
 echo "adding ${date} to ${FILE}"
-mv -i -v "$FILE" "${date}$FILE"
+mv -i -v "$FILE" "${date} $FILE"
 done
 
 
