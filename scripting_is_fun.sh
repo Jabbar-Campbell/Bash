@@ -119,4 +119,4 @@ local count=$(ls -1 $dir | wc -l)   # | is  is a pipe similar to %> in R
 echo "the number of files in $dir is  $count"
 }
 
-file_count /Users/jabba/Desktop/Bioinformatic
+file_count $dir
