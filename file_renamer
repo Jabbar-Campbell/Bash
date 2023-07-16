@@ -1,8 +1,12 @@
 #!/bin/sh
 
+# This will take files that are pdfs and add a date to the 
+# filename
 
+# were are we currently
 Current=$(pwd)
 
+#user can  enter a target directory
 Directory=$1
 
 #Folder2=${/c/Users/jabba/Downloads}
@@ -19,11 +23,11 @@ echo "$1 isn't a real Directory"
 fi
 
 
-
+#passes todays date to the date variable
 date=$(date '+%Y-%m-%d') 
 
 
-
+#loop thru each pdf and append date to the file name
 for FILE in ls *.pdf $1
 do 
 echo "adding ${date} to ${FILE}"
