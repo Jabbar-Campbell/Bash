@@ -48,10 +48,33 @@ echo $3
 echo $4
 
 
+
+
+###############################################################################
+#############################CASE LOGIC#######################################
+#here we ask the user for an prompt and then use case logic  on that variable
+
+
+read -p "Do you want start or stop the server, Type start or stop " ANSWER
+
+case "$ANSWER" in
+   start)
+     echo "starting the server"
+     /c/tmp/sleepwalkingserver &
+     exit 0   
+;;
+   stop)
+     echo "stopping the server"
+     kill $(cat /c/tmp/sleepwalkingserver.pid)
+     exit 0
+esac
+
+
+
+
 ####################################################################################
 #############################STANDARD INPUT FROM USE#############################
-#read in an input named after the variable FILE 
-#and then inspect it downstream with if logic
+#read in an input as a variable FILE  and then inspect it downstream with if logic
 ## read -p <PROMPT> <variable.name>
 
 read -p "What is the name of the file you're looking for " FILE
@@ -70,6 +93,8 @@ fi
 
 ########################################################################################
 ##################################EXIT STATUSES########################################
+#you can put exits in your if statements to end a script early#########################
+
 echo "this script  will exit with a  0 exit status"
 #exit 0
 
@@ -109,6 +134,9 @@ fi
 
 # to count files in a directory save files to a variable
 # then subset that variable? 
+# function <fuction_name>() {contents of your function}
+
+
 function file_count()
 {
 #shopt -s nullglob
