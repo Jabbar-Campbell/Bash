@@ -66,7 +66,7 @@ case "$ANSWER" in
    stop)
      echo "stopping the server"
      kill $(cat /c/tmp/sleepwalkingserver.pid)
-     exit 0
+     #exit 0
 esac
 
 
@@ -151,5 +151,25 @@ echo "the number of files in $dir is  $count"
 #I want to be able to supply a parameter which the function
 #filecount then uses to count files
 file_count $dir
+
+
+#########################################################################################
+#################################LOGGING##################################################
+
+#logging is a useful way to track
+#the progress of a serious of tasks
+#
+
+
+logit(){
+logger -p user.info "logging the variable called MY_NUMBER as  $MY_NUMBER"
+}
+
+
+
+MY_NUMBER=$((1 + $RANDOM % 10 ))
+echo "printing a random number $MY_NUMBER"
+logger -p user.info  "logging the variable called MY_NUMBER as $MY_NUMBER"
+logit
 
 
