@@ -21,12 +21,9 @@ FILE=/c/Users/jabba/Desktop/Sandbox/Bash/passwd.txt
 
 
 
-###here we ask the user which lines to read and read only those
+# here we ask the user which lines to read and read only those
 
 read -p "how many lines of $FILE should I read: " PICK_NUM
-
-
-
 
 LINE_NUM=1
 while read LINE
@@ -41,3 +38,35 @@ break
 esac
 ((LINE_NUM++))
 done <  /c/Users/jabba/Desktop/Sandbox/Bash/passwd.txt
+
+
+# here we give the user several options to choose prom
+# if theres a match in the case logic we have some
+# commands that are executed
+# anything else we break out out of the while loop
+
+
+while true
+read -p "Choose an option (1)Show disk usage (2)Show uptime (3)User logged in (q)Quit " USER
+case "$USER" in
+ 1)
+ df #show disk usage
+ ;;
+
+ 2)
+ uptime #show uptime
+ ;;
+
+ 3)
+ whoami #show whos logged in
+ ;;
+
+ q)
+ break #exit
+ ;;
+
+ *)
+ echo "invalid entry" #anything else than those choices
+ ;;
+esac
+done
