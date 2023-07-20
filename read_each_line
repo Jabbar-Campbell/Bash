@@ -1,0 +1,43 @@
+#! /bin/sh
+
+
+
+# This script set LINE_NUM as a variable and employs
+# a while loop to read each line as a LINE variabe
+# no sure why the done ends the loop but so be it
+
+
+
+LINE_NUM=1
+while read LINE
+do
+echo "Line number ${LINE_NUM}: says ${LINE}"
+((LINE_NUM++))
+done < /c/Users/jabba/Desktop/Sandbox/Bash/passwd.txt
+
+
+
+FILE=/c/Users/jabba/Desktop/Sandbox/Bash/passwd.txt
+
+
+
+###here we ask the user which lines to read and read only those
+
+read -p "how many lines of $FILE should I read: " PICK_NUM
+
+
+
+
+LINE_NUM=1
+while read LINE
+do
+case "$LINE_NUM" in
+[1-$PICK_NUM]) 
+echo "Line number ${LINE_NUM}: says ${LINE}"
+;;
+*)
+break
+;;
+esac
+((LINE_NUM++))
+done <  /c/Users/jabba/Desktop/Sandbox/Bash/passwd.txt
