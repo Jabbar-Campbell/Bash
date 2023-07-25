@@ -1,0 +1,21 @@
+#!/bin/sh 
+
+set -x-e  #the x option and the e option echos each line to the screen and stops if theres and error
+
+
+
+
+
+DEBUG=TRUE
+$DEBUG && echo "Exit status is zero" #since the exit status is zero both are executed
+
+
+DEBUG=FALSE
+$DEBUG || echo "Exit status is nonzero" #the exit status is nonzero but the or executed the second part
+
+DEBUG=TRUE
+$DEBUG || echo "Exit status is zero" ##since DEBUG is true we stop there and the print statment isnt executed
+
+
+
+
